@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hotkey example</title>
+    <style>
+      body {
+        font: 11pt/15pt 'segoe ui', verdana, arial;
+      }
+
+      button {
+        padding: 4px 8px;
+      }
+
+      #msg {
+        color: blue;
+        margin-top: 1em;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>hotkey example</h1>
+    <button data-hotkey="M | N">Button 1 (M or N)</button>
+    <button data-hotkey="G > I">Button 2 (G then I)</button>
+    <button data-hotkey="CTRL+M > CTRL+M">Button 3 (Ctrl+M then Ctrl+M)</button>
+    <button data-hotkey="SHIFT+K">Button 4 (Shift+K)</button>
+    <button data-hotkey="CTRL+SHIFT+ALT+A">Button 5 (Ctrl+Shift+Alt+A)</button>
+    <div id=msg></div>
+    <script type="application/dart" src="example.dart"></script>
+  </body>
+</html>
