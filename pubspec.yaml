@@ -2,6 +2,7 @@ name: hotkey
 version: 0.1.0
 author: Man Hoang <jolleekin@outlook.com>
 description: A library that enables the binding of hotkeys (keyboard shortcuts) to [Element]'s or [Function]'s.
+homepage: https://github.com/jolleekin/hotkey
 transformers:
 - $dart2js:
     verbose: 'true'
