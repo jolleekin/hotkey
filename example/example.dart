@@ -1,4 +1,4 @@
-import '../lib/hotkey.dart' as hotkey;
+import 'package:hotkey/hotkey.dart' as hotkey;
 import 'dart:html';
 
 main() {
