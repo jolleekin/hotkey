@@ -3,6 +3,8 @@ version: 0.1.0
 author: Man Hoang <jolleekin@outlook.com>
 description: A library that enables the binding of hotkeys (keyboard shortcuts) to [Element]'s or [Function]'s.
 homepage: https://github.com/jolleekin/hotkey
+environment:
+  sdk: '>=1.3.0 <2.0.0'
 transformers:
 - $dart2js:
     verbose: 'true'
