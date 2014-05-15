@@ -9,7 +9,7 @@ modifiers.
 import 'package:hotkey/hotkey.dart' as hotkey;
 
 hotkey.add('a>b>c | x>y>z', () => print('A then B then C or X then Y then Z'));
-hotkey.add('CTRL+R > CTRL+R', () => print('CTRL+R then CTRL+R'));
+hotkey.add('CTRL+M > CTRL+M', () => print('CTRL+M then CTRL+M'));
 hotkey.add('SHIFT+T', () => print('SHIFT+T'));
 hotkey.add('CTRL+SHIFT+ALT+A', () => print('CTRL+SHIFT+ALT+A'));
 
@@ -17,10 +17,10 @@ hotkey.enable();
 ````
 # Bind Hotkeys to Elements
 
-1. If the element `e` is editable (`textarea`, `input[type=tel]`, `input[type=text]`,
-   `input[type=tel]`, `input[type=email]`, `input[type=pasword]` with `disabled`
-   attribute set to `false` or `isContentEditable` set to `true`), `e.focus` is
-   called
+1. If element `e` is editable, `e.focus` is called. An element `e` is editable if
+    1. `e` is a `textarea` and `e.disabled` == `false`
+    2. `e` is an `input` and `e.type` in ['tel', 'text', 'email', 'search', 'password'] and `e.disabled` == `false`
+    3. `e.isContentEditable` == `true` or there exists a parent node `p` of `e` such that `p.isContentEditable` == `true`
 2. Otherwise, `e.click` is called
 
 ## Option 1 - Declarative
