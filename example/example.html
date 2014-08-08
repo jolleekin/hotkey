@@ -14,6 +14,16 @@
         padding: 4px 8px;
       }
 
+      label {
+        display: block;
+        margin-top: 20px;
+      }
+
+      input {
+        width: 300px;
+        margin-top: 10px;
+      }
+
       #msg {
         color: blue;
         margin-top: 1em;
@@ -27,6 +37,10 @@
     <button data-hotkey="CTRL+M > CTRL+M">Button 3 (Ctrl+M then Ctrl+M)</button>
     <button data-hotkey="SHIFT+K">Button 4 (Shift+K)</button>
     <button data-hotkey="CTRL+SHIFT+ALT+A">Button 5 (Ctrl+Shift+Alt+A)</button>
+    <div>
+      <label>Input to consume key strokes</label>
+      <input type="text" />
+    </div>
     <div id=msg></div>
     <script type="application/dart" src="example.dart"></script>
   </body>

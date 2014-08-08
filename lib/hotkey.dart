@@ -183,7 +183,7 @@ void add(String hotkey, target) {
     // Adding 'A>B>C' while 'A>B' already exists.
     // 'A>B>C' is shadowed and will never be realized.
     if (node is! Map) {
-      throw new ArgumentError('Hotkey "$hotkey" is shadowed.');
+      throw new ArgumentError('Hotkey "$hotkey" is shadowed by other hotkeys.');
     }
   }
 
@@ -292,10 +292,23 @@ bool _isEditable(Element e) {
   return false;
 }
 
+/**
+ * Returns the true active element.
+ *
+ * This function works across any Shadow DOM boundaries.
+ */
+Element _getActiveElement(Element root) {
+  if (root == null) root = document.activeElement;
+  while (root.shadowRoot != null) {
+    root = root.shadowRoot.activeElement;
+  }
+  return root;
+}
+
 void _detectHotKey(KeyboardEvent e) {
   if (!ALLOWED_KEY_IDENTIFIERS.containsKey(e.keyCode)) return;
-
-  if (_isEditable(e.target) && !e.ctrlKey && !e.altKey) return;
+  var activeElement = _getActiveElement(e.target);
+  if (_isEditable(activeElement) && !e.ctrlKey && !e.altKey) return;
 
   var key = '';
   if (e.ctrlKey) key += 'CTRL+';
@@ -308,6 +321,8 @@ void _detectHotKey(KeyboardEvent e) {
   if (_node == null) _node = _tree;
 
   if (_node is Map) return;
+  if (_node is InputElement && _node.disabled) return;
+  if (_node is ButtonElement && _node.disabled) return;
 
   if (_node is Function) {
     _node();

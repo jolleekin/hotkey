@@ -1,5 +1,5 @@
 name: hotkey
-version: 0.1.0
+version: 0.1.1
 author: Man Hoang <jolleekin@outlook.com>
 description: A library that enables the binding of hotkeys (keyboard shortcuts) to [Element]'s or [Function]'s.
 homepage: https://github.com/jolleekin/hotkey
