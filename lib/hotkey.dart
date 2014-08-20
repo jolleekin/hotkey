@@ -319,10 +319,10 @@ void _detectHotKey(KeyboardEvent e) {
   _node = _node[key];
   if (_node == null) _node = _tree[key];
   if (_node == null) _node = _tree;
+  if (_node is InputElement && _node.disabled) _node = _tree;
+  if (_node is ButtonElement && _node.disabled) _node = _tree;
 
   if (_node is Map) return;
-  if (_node is InputElement && _node.disabled) return;
-  if (_node is ButtonElement && _node.disabled) return;
 
   if (_node is Function) {
     _node();
